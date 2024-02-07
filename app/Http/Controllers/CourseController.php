@@ -12,7 +12,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view();/*FALTA*//*RELLENAR CON LA VISTA*/
     }
 
     /**
@@ -20,7 +21,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view();/*FALTA*//*RELLENAR CON LA VISTA*/
     }
 
     /**
@@ -28,7 +29,8 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = Course::create($request->all());
+        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*//*TIENE QUE LLEVAR A COURSE->INDEX*/
     }
 
     /**
@@ -36,7 +38,9 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $periods = $course->period();
+        $holidays = $course->holiday();
+        return view(['course' => $course, 'periods' => $periods, 'holidays' => $holidays]); /*FALTA*//*RELLENAR CON LA VISTA*/
     }
 
     /**
@@ -44,7 +48,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view(['course' => $course]); /*FALTA*//*RELLENAR CON LA VISTA*/
     }
 
     /**
@@ -52,7 +56,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $course->update($request->all());
+        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*/
     }
 
     /**
@@ -60,6 +65,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*/
     }
 }
