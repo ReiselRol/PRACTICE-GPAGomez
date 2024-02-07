@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PeriodController;
+use App\Http\Controllers\HolidayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +32,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::resource('course', CourseController::class);
+Route::resource('course.period', PeriodController::class);
+Route::resource('course.holiday', HolidayController::class);
