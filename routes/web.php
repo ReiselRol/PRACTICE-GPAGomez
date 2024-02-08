@@ -18,7 +18,7 @@ use App\Http\Controllers\HolidayController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('/index');
 });
 
 Route::get('/dashboard', function () {

@@ -1,3 +1,15 @@
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 .navbarSizeAndPosition {
     position: fixed;
     top: 0;
@@ -7,6 +19,10 @@
     height: 10vh;
     padding: 0%;
     margin: 0%;
+    z-index: 1000;
+    background : linear-gradient(90deg, rgb(128, 0, 202), rgb(68, 0, 108))
+}
+.headingBackground {
     background : linear-gradient(90deg, rgb(128, 0, 202), rgb(68, 0, 108))
 }
 .navbarTableSize {
@@ -27,18 +43,47 @@
     width: 8%;
     height: 100%;
     text-align: center;
+    background-color: rgba(240, 255, 255, 0);
+    transition: filter, background-color, 0.2s ease-in-out;
+    filter: brightness(0.8);
+}
+.navbarHambuergerTd:hover {
+    filter: brightness(1.7);
+    background-color: rgba(240, 255, 255, 0.207);
+}
+.navbarButtonLogin {
+    background-color: rgb(213, 213, 213);
+    border-radius: 5px;
+    width: 15%;
+    height: 40%;
+    font-size: 2vmin;
+    text-align: center;
+    color: #720fb9;
+    border: #720fb9 solid 2px;
+    transition: color, border, background-color, 0.4s ease-in-out;
+}
+.navbarButtonLogin:hover {
+    background-color : rgb(48, 0, 75);
+    color: azure;
+    border: azure solid 2px;
+}
+.navbarLoginTd {
+    text-align: end;
+    padding-right: 2%;
 }
 .hamburgerImg {
     width: 30%;
     height: auto;
-    transition: filter 0.2s ease-in-out;
-    filter: brightness(0.8);
+    
 }
-.hamburgerImg:hover {
-    filter: brightness(1.1);
+.LogedIconClass {
+    width: 4%;
+    height: auto;
 }
 .navbarTitle {
-    
+    text-align: start;
+    padding-left: 2%;
+    padding-bottom: 1%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 6vmin;
     font-weight: bold;
@@ -47,4 +92,56 @@
     background-image: linear-gradient(to top, #dd1dff, #4e0fb9);
     -webkit-background-clip: text;
     background-clip: text; 
+}
+.logo {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 6vmin;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 0.5px white;
+    background-image: linear-gradient(to top, #dd1dff, #4e0fb9);
+    -webkit-background-clip: text;
+    background-clip: text; 
+}
+.lateralBar {
+    top : 10vh;
+    width: 18vw;
+    position: fixed;
+    height: 90vh;
+    filter: brightness(0.8);
+    z-index: 1000;
+    background : linear-gradient(180deg, rgb(128, 0, 202), rgb(68, 0, 108));
+    transition: left 0.5s ease-in-out;
+}
+.lateralBarActived {
+    left: 0vw;
+}
+.lateralBarUnctived {
+    left: -10vw;
+}
+.allScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: filter 0.5s ease-in-out;
+    z-index: 1;
+}
+.oscureScreen {
+    filter: brightness(0.7);
+}
+.normalScreen {
+    filter: brightness(1);
+}
+.LoginAnimatedBG {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+	height: 100vh;
+	background: linear-gradient(134deg, rgb(54, 0, 85), #7b60aa, rgb(128, 0, 202));
+	background-size: 180% 180%;
+	animation: gradient-animation 6s ease infinite;
+    z-index: -1;
 }
