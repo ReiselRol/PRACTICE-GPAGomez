@@ -1,7 +1,9 @@
 @extends('masters.master')
 @section('title')
-Welcome to GPAGomez
+Perios Creation
 @endsection()
 @section('content')
-hola
+    <form method="POST">
+        @csrf
+    </form>
 @endsection()

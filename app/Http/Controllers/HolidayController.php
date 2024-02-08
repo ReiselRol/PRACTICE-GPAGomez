@@ -39,7 +39,7 @@ class HolidayController extends Controller
      */
     public function show(Holiday $holiday, Course $course)
     {
-        return view(['holiday' => $holiday, 'course' => $course]); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return view(['holiday' => $holiday, 'course' => $course]); /*FALTA*//*RELLENAR CON LA VISTA/
     }
 
     /**

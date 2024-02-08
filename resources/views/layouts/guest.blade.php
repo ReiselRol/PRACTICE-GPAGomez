@@ -18,7 +18,7 @@
         
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 LoginAnimatedBG">
             <div>
-                <a href="/">
+                <a href="{{ url('/') }}">
                     <div class="logo">GPAGomez</div>
                 </a>
             </div>
