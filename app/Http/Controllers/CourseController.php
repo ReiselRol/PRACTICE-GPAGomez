@@ -13,7 +13,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view();/*FALTA*//*RELLENAR CON LA VISTA*/
+        return view('CourseViews.course-index');
     }
 
     /**
@@ -30,7 +30,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $course = Course::create($request->all());
-        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*//*TIENE QUE LLEVAR A COURSE->INDEX*/
+        return redirect('course'); 
     }
 
     /**
@@ -40,7 +40,7 @@ class CourseController extends Controller
     {
         $periods = $course->period();
         $holidays = $course->holiday();
-        return view(['course' => $course, 'periods' => $periods, 'holidays' => $holidays]); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return view(/*********/['course' => $course, 'periods' => $periods, 'holidays' => $holidays]); 
     }
 
     /**
