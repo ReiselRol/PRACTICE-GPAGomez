@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Period;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class PeriodController extends Controller
@@ -12,23 +13,27 @@ class PeriodController extends Controller
      */
     public function index()
     {
-        //
+        return view('PeriodViews.period-index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Course $course)
     {
-        return view('PeriodViews.period-create');
+
+        return view('PeriodViews.period-create', ['courseId' => $course->id]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Course $course)
     {
-        //
+        $period = new Period($request->all());
+        $period->course_id = $course->id;
+        $period->save();
+        return redirect('/course/'.$course->id.'/period');
     }
 
     /**

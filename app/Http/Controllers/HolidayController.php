@@ -14,24 +14,27 @@ class HolidayController extends Controller
     public function index()
     {
         $holidays = Holiday::all();
-        return view(['holidays' => $holidays]); /*FALTA*//* RELLENAR CON LA VISTA*/ 
+        return view('HolidayViews.holiday-index',['holidays' => $holidays]); 
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Course $course)
     {
-        return view(); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return view('holidayViews.holiday-create', ['courseId' => $course->id]); 
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Course $course)
     {
-        $holiday = Holiday::create($request->all());
-        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*/
+        $holiday = new Holiday($request->all());
+        $holiday->course_id = $course->id;
+        $holiday->save();
+
+        return redirect('/course/'.$course->id.'/holiday'); 
     }
 
     /**
