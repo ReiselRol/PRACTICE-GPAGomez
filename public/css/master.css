@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: 'Circular';
+    src: url('ruta/a/tu/font/Circular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('ruta/a/tu/font/DS-DIGIT.TTF') format('truetype');
+}
 
 @keyframes gradient-animation {
 	0% {
@@ -11,7 +19,21 @@
 		background-position: 0% 50%;
 	}
 }
-
+body {
+    font-family: 'Circular', sans-serif;
+    overflow: hidden;
+}
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: block;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(191, 157, 206));
+}
 .navbarSizeAndPosition {
     position: fixed;
     top: 0;
@@ -21,7 +43,7 @@
     height: 10vh;
     padding: 0%;
     margin: 0%;
-    z-index: 1000;
+    z-index: 999;
     background : linear-gradient(90deg, rgb(128, 0, 202), rgb(68, 0, 108))
 }
 .headingBackground {
@@ -134,7 +156,6 @@
     left: 8vw;
     width: 92vw;
     height: 90vh;
-    background: radial-gradient(#ffffff, #e6e6e6);
     transition: filter 0.5s ease-in-out;
     z-index: 1;
 }
@@ -144,7 +165,6 @@
     left: 0;
     width: 100vw;
     height: 90vh;
-    background: radial-gradient(#ffffff, #e6e6e6);
     transition: filter 0.5s ease-in-out;
     z-index: 1;
 }
@@ -211,7 +231,7 @@
     margin-top: 7%;
     padding: 0;
     z-index: 5;
-    background: linear-gradient(135deg,rgb(224, 224, 224),white, rgb(224, 224, 224));
+    background: linear-gradient(135deg, rgb(206, 206, 206), #ffffff, rgb(206, 206, 206));
 }
 .InfoTable {
     margin-left: 9%;
@@ -233,5 +253,37 @@
     color: aliceblue;
     font-size: 3.2vmin;
 }
-.InfoTableTd {
+.LateralBarTable {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.LateralTableTr {
+    width: 100%;
+    height: 10%;
+    padding: 0%;
+}
+.nothingHere {
+    height: 30vh;
+    padding-top: 15vh;
+    font-size: 4vmin;
+}
+.sadFace {
+    position: fixed;
+    top: 50vh;
+    left: 43vw;
+    color: gray;
+    font-family: 'DS-Digital', sans-serif;
+    font-size: 10vmin;
+}
+.middleTd {
+    background-color: rgb(221, 221, 221);
+}
+.tdTitle {
+    border-bottom: white solid 2px;
+}
+.MenuTitle {
+    color: white;
+    font-size: 5vmin;
 }

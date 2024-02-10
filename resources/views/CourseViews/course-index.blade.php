@@ -1,7 +1,4 @@
-@extends('masters.allElements');
-@section('title')
-    All Courses
-@endsection()
-@section('elements')
-    
+@extends('masters.allElements', ['elememts' => $courses, 'modelAtributes' => ['name','startDate','endDate'], 'atributesHeader' => ['Name','Start Date','End Date']]);
+@section('ModelPluralName')
+    Courses
 @endsection()
