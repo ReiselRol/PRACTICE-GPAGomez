@@ -40,7 +40,7 @@ class CourseController extends Controller
     {
         $periods = $course->period();
         $holidays = $course->holiday();
-        return view(/*********/['course' => $course, 'periods' => $periods, 'holidays' => $holidays]); 
+        return view('CourseViews.course-show', ['course' => $course, 'periods' => $periods, 'holidays' => $holidays]); 
     }
 
     /**
@@ -48,7 +48,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view(['course' => $course]); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return view('CourseViews.course-edit', ['course' => $course]); 
     }
 
     /**
@@ -57,7 +57,7 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         $course->update($request->all());
-        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return redirect('course/');
     }
 
     /**
@@ -66,6 +66,10 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         $course->delete();
-        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return redirect('course/'); 
+    }
+
+    public function generateExcel(Course $course){
+        
     }
 }

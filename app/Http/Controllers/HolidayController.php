@@ -42,7 +42,7 @@ class HolidayController extends Controller
      */
     public function show(Holiday $holiday, Course $course)
     {
-        return view(['holiday' => $holiday, 'course' => $course]); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return view('HolidayViews.holiday-show',['holiday' => $holiday, 'course' => $course]); 
     }
 
     /**
@@ -50,7 +50,7 @@ class HolidayController extends Controller
      */
     public function edit(Holiday $holiday, Course $course)
     {
-        return view(['holiday' => $holiday, 'course' => $course]); /*FALTA*//*RELLENAR CON LA VISTA*/
+        return view('HolidayViews.holiday-edit',['holiday' => $holiday, 'course' => $course]); 
     }
 
     /**
@@ -59,7 +59,7 @@ class HolidayController extends Controller
     public function update(Request $request, Holiday $holiday, Course $course)
     {
         $holiday->update($request->all());
-        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*//*LA RUTA HA DE SER TIPO RESOURCE, POR ESO EL COURSE*/
+        return redirect('course/'.$course->id.'/holiday'); 
     }
 
     /**
@@ -68,6 +68,6 @@ class HolidayController extends Controller
     public function destroy(Holiday $holiday, Course $course)
     {
         $holiday->delete();
-        return redirect(); /*FALTA*//*RELLENAR CON LA VISTA*//*IGUAL QUE UPDATE*/
+        return redirect('course/'.$course->id.'/holiday'); 
     }
 }

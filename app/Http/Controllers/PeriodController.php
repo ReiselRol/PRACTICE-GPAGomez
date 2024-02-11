@@ -39,32 +39,34 @@ class PeriodController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Period $period)
+    public function show(Period $period, Course $course)
     {
-        //
+        return view('PeriodViews.period-show', ['period' => $period, 'course' => $course]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Period $period)
+    public function edit(Period $period, Course $course)
     {
-        //
+        return view('PeriodViews.period.edit', ['period' => $period, 'course' => $course]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Period $period)
+    public function update(Request $request, Period $period, Course $course)
     {
-        //
+        $period->update($request->all());
+        return redirect('course/'.$course->id.'/period');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Period $period)
+    public function destroy(Period $period, Course $course)
     {
-        //
+        $period->delete();
+        return redirect('course/'.$course->id.'/period');
     }
 }
