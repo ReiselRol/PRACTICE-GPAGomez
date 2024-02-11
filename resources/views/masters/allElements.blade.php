@@ -21,7 +21,9 @@
         <table class="InfoTable">
             <tr class="InfoTableTrHeader">
                 <td colspan="{{ count($atributesHeader) }}"> Information </td>
-                <td rowspan="2"> Actions </td>
+                @if ($actions == true)
+                    <td rowspan="2"> Actions </td>
+                @endif
             </tr>
             <tr class="InfoTableTrHeader">
                 @foreach($atributesHeader as $atribute)
@@ -38,17 +40,25 @@
                     @endif
                     @php $index++; @endphp
                 @endforeach()
-                @if ($index % 2 != 0) <td id ="{{'column' . $index}}" class="middleTd">
-                @else 
-                    <td id ="{{'column' . $index}}">
-                @endif
-                    <a href="{{$initialURL . $element->id}}"><button class="viewButton">View</button></a><br/>
-                    <a href="{{$initialURL . $element->id . "/edit"}}"><button class="editButton">Edit</button></a>
-                    <form class="unmodifiSize" method="POST" action="{{$initialURL . $element->id}}"> @csrf @method('DELETE') <button type="submit" class="deleteButton">Delete</button></form>
-                    @if ($exportable == true)
-                        <button class="exportButton">Export</button> 
+                @if ($actions == true)
+                    @if ($index % 2 != 0) <td id ="{{'column' . $index}}" class="middleTd">
+                    @else 
+                        <td id ="{{'column' . $index}}">
                     @endif
-                </td>
+                        @if ($viewable == true)
+                        <a href="{{$initialURL . $element->id}}"><button class="viewButton">View</button></a><br/>
+                        @endif
+                        @if ($editable == true)
+                            <a href="{{$initialURL . $element->id . "/edit"}}"><button class="editButton">Edit</button></a>
+                        @endif
+                        @if ($deletable == true)
+                            <form class="unmodifiSize" method="POST" action="{{$initialURL . $element->id}}"> @csrf @method('DELETE') <button type="submit" class="deleteButton">Delete</button></form>
+                        @endif
+                        @if ($exportable == true)
+                            <button class="exportButton">Export</button> 
+                        @endif
+                    </td>
+                @endif
             </tr>
             @endforeach()
         </table>

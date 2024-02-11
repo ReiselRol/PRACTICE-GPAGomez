@@ -11,12 +11,15 @@ class HolidayController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Course $course)
     {
-        $holidays = Holiday::all();
-        return view('HolidayViews.holiday-index',['holidays' => $holidays]); 
+        return redirect('/course/' . $course->id);
     }
 
+    public function showAll () {
+        $holidays = Holiday::all();
+        return view('HolidayViews.holiday-index', ['holidays' => $holidays]);
+    }
     /**
      * Show the form for creating a new resource.
      */

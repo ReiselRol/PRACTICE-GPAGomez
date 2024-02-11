@@ -11,9 +11,14 @@ class PeriodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Course $course)
     {
-        return view('PeriodViews.period-index');
+        return redirect('/course/' . $course->id);
+    }
+
+    public function showAll () {
+        $period = Period::all();
+        return view('PeriodViews.period-index', ['periods' => $period]);
     }
 
     /**
