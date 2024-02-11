@@ -21,11 +21,12 @@
 }
 body {
     font-family: 'Circular', sans-serif;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 svg {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top :1.1vh;
     left: 0;
     z-index: -1;
     width: 100%;
@@ -155,18 +156,18 @@ svg {
     left: -10vw;
 }
 .allScreen {
-    position: fixed;
-    top: 10vh;
-    left: 8vw;
+    margin-top: -5%;
+    margin-left: 7.5vw;
+    padding-top: 11%;
     width: 92vw;
-    height: 90vh;
+    height: 85vh;
     transition: filter 0.5s ease-in-out;
     z-index: 1;
 }
 .allScreenBig {
-    position: fixed;
-    top: 10vh;
-    left: 0;
+    overflow: hidden;
+    margin-top: 10vh;
+    margin-left: -0.5vw;
     width: 100vw;
     height: 90vh;
     transition: filter 0.5s ease-in-out;
@@ -238,6 +239,7 @@ svg {
     background: linear-gradient(135deg, rgb(206, 206, 206), #ffffff, rgb(206, 206, 206));
 }
 .InfoTable {
+    position: relative;
     margin-left: 9%;
     margin-top: 10%;
     width: 80%;
@@ -383,4 +385,71 @@ svg {
 .profileOptionL {
     text-decoration: none !important;
     color: rgb(199, 1, 1)
+}
+.editButton {
+    width: 80%;
+    background-color: rgb(106, 176, 0);
+    color: white;
+    font-size: 2.5vmin;
+    border-radius: 5px;
+    border: white solid 2px;
+    transition: color, border, background-color, 0.2s ease-in-out;
+}
+.editButton:hover {
+    color: rgb(106, 176, 0);
+    border: rgb(106, 176, 0) solid 2px;
+    background-color: white;
+}
+.viewButton {
+    width: 80%;
+    background-color: rgb(0, 97, 176);
+    color: white;
+    font-size: 2.5vmin;
+    border-radius: 5px;
+    border: white solid 2px;
+    transition: color, border, background-color, 0.2s ease-in-out;
+}
+.viewButton:hover {
+    color: rgb(0, 97, 176);
+    border: rgb(0, 97, 176) solid 2px;
+    background-color: white;
+}
+.deleteButton {
+    width: 80%;
+    background-color: rgb(176, 0, 0);
+    color: white;
+    font-size: 2.5vmin;
+    border-radius: 5px;
+    border: white solid 2px;
+    transition: color, border, background-color, 0.2s ease-in-out;
+}
+.deleteButton:hover {
+    color: rgb(176, 0, 0);
+    border: rgb(176, 0, 0) solid 2px;
+    background-color: white;
+}
+.exportButton {
+    width: 80%;
+    background-color: rgb(129, 129, 129);
+    color: white;
+    font-size: 2.5vmin;
+    border-radius: 5px;
+    border: white solid 2px;
+    transition: color, border, background-color, 0.2s ease-in-out;
+}
+.exportButton:hover {
+    color: rgb(129, 129, 129);
+    border: rgb(129, 129, 129) solid 2px;
+    background-color: white;
+}
+.unmodifiSize {
+    margin: 0;
+}
+.infoTR {
+    filter: brightness(1);
+    transition: filter 0.4s ease-in-out;
+    background-color: rgb(255, 255, 255);
+}
+.infoTR:hover {
+    filter: brightness(0.9);
 }

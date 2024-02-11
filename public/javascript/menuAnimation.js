@@ -123,7 +123,13 @@ const changeProfileUI = () => {
     }
 }
 
+const moveToTop = (fondito) => {
+    var element = document.getElementById(fondito);
+    element.style.top = window.scrollY;
+}
+
 HamburgerButton.addEventListener('click', function() { changeLateralUI() })
 CourseL.addEventListener('click', function() { changeLateralUI() })
 PeriodL.addEventListener('click', function() { changeLateralUI() })
 LogoBtn.addEventListener('click', function() { changeProfileUI(false) })
+window.addEventListener('scroll', function() { moveToTop('fondito') })
