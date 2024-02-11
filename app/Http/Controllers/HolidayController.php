@@ -36,8 +36,8 @@ class HolidayController extends Controller
         $holiday = new Holiday($request->all());
         $holiday->course_id = $course->id;
         $holiday->save();
-
-        return redirect('/course/'.$course->id); 
+        return redirect('/course/' . $course->id);
+    
     }
 
     /**
@@ -51,7 +51,7 @@ class HolidayController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Holiday $holiday, Course $course)
+    public function edit(Course $course, Holiday $holiday)
     {
         return view('HolidayViews.holiday-edit',['holiday' => $holiday, 'course' => $course]); 
     }
@@ -59,10 +59,10 @@ class HolidayController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Holiday $holiday, Course $course)
+    public function update(Course $course, Request $request, Holiday $holiday)
     {
         $holiday->update($request->all());
-        return redirect('course/'.$course->id); 
+        return redirect('/course/'.$course->id); 
     }
 
     /**

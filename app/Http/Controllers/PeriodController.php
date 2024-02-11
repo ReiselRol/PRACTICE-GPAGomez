@@ -38,7 +38,8 @@ class PeriodController extends Controller
         $period = new Period($request->all());
         $period->course_id = $course->id;
         $period->save();
-        return redirect('/course/'.$course->id);
+        return redirect('/course/' . $course->id);
+
     }
 
     /**
@@ -52,18 +53,18 @@ class PeriodController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Period $period, Course $course)
+    public function edit(Course $course, Period $period)
     {
-        return view('PeriodViews.period.edit', ['period' => $period, 'course' => $course]);
+        return view('PeriodViews.period-edit', ['period' => $period, 'course' => $course]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Period $period, Course $course)
+    public function update(Course $course, Request $request, Period $period)
     {
         $period->update($request->all());
-        return redirect('course/'.$course->id);
+        return redirect('/course/'.$course->id);
     }
 
     /**

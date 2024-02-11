@@ -31,8 +31,8 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        Course::create($request->all());
-        return redirect('course'); 
+            $course = Course::create($request->all());
+            return redirect('/course'); 
     }
 
     /**
@@ -51,7 +51,9 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('CourseViews.course-edit', ['course' => $course]); 
+        $periods = Period::where(['course_id' => $course->id])->get();
+        $holidays = Holiday::where(['course_id' => $course->id])->get();
+        return view('CourseViews.course-edit', ['course' => $course, 'periods' => $periods, 'holidays' => $holidays]); 
     }
 
     /**
@@ -160,6 +162,13 @@ class CourseController extends Controller
                                     $dayContent .= '<br/><br/>' . $period->name; 
                                     break;
                                 }
+                            }
+                        }
+                        if ($setted == false) {
+                            if (strtotime($actualDate) >= strtotime($course->startDate) && strtotime($actualDate) <= strtotime($course ->endDate)) {
+                                $setted = true;
+                                $content .= '<td class="oneCalendarTD course">';
+                                $dayContent .= '<br/><br/>'. $course->name; 
                             }
                         }
                         if ($setted == false) $content .= '<td class="oneCalendarTD">';
