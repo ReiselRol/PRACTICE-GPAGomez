@@ -11,11 +11,17 @@ class PeriodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Course $course)
     {
-        return view('PeriodViews.period-index');
+        $period = Period::where(['course_id' => $course->id]);
+        return view('PeriodViews.period-index', ['$period' => $period]);
     }
 
+    public function showAllPeriod()
+    {
+        $period = Period::all();
+        return view('PeriodViews.period-index', ['period' => $period]);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -30,10 +36,20 @@ class PeriodController extends Controller
      */
     public function store(Request $request, Course $course)
     {
+        $courseDate1 = $course->startDate;
+        $courseDate2 = $course->endDate;
         $period = new Period($request->all());
-        $period->course_id = $course->id;
-        $period->save();
-        return redirect('/course/'.$course->id);
+        $date1 = $period->stateDate;
+        $date2 = $period->endDate;
+
+        if (($courseDate2 >= $date1) && ( $date1 >= $courseDate1) && ($courseDate2 >= $date1)&&( $date1 >= $courseDate1) && ($date1 <= $date2)) {
+            $period->course_id = $course->id;
+            $period->save();
+            return redirect('/course/' . $course->id);
+        }
+        else{
+            return redirect('/course/' . $course->id . '/create');
+        }
     }
 
     /**
@@ -58,7 +74,7 @@ class PeriodController extends Controller
     public function update(Request $request, Period $period, Course $course)
     {
         $period->update($request->all());
-        return redirect('course/'.$course->id);
+        return redirect('course/' . $course->id);
     }
 
     /**
@@ -67,6 +83,6 @@ class PeriodController extends Controller
     public function destroy(Period $period, Course $course)
     {
         $period->delete();
-        return redirect('course/'.$course->id);
+        return redirect('course/' . $course->id);
     }
 }

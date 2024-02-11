@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('course', CourseController::class);
     Route::resource('course.period', PeriodController::class);
     Route::resource('course.holiday', HolidayController::class);
+    //Route::get('/course/export/{id}', CourseController::class, 'generateJson');
+    //Route::get('/period', PeriodController::class, 'showAllPeriods');
+    //Route::get('/holiday', HolidayController::class, 'showAllHoliday');
 });
 
 require __DIR__.'/auth.php';

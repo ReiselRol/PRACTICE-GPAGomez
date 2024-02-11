@@ -29,8 +29,22 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $course = Course::create($request->all());
-        return redirect('course'); 
+        $isDateReal = false;
+        $info = $request->all();
+
+        $date1 = strtotime($info['startDate']);
+        $date2 = strtotime($info['endDate']);
+
+        if($date1 > $date2) $isDateReal = false;
+        else $isDateReal = true;
+        
+        if($isDateReal){
+            $course = Course::create($request->all());
+            return redirect('course'); 
+        }
+        else{
+            return redirect('/course/create');
+        }
     }
 
     /**
@@ -69,7 +83,7 @@ class CourseController extends Controller
         return redirect('course/'); 
     }
 
-    public function generateExcel(Course $course){
+    public function generateJson(Course $course){
         
     }
 }

@@ -11,8 +11,13 @@ class HolidayController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Course $course)
     {
+        $holidays = Holiday::where(['course_id' => $course->id]);
+        return view('HolidayViews.holiday-index',['holidays' => $holidays]); 
+    }
+
+    public function showAllHoliday(){
         $holidays = Holiday::all();
         return view('HolidayViews.holiday-index',['holidays' => $holidays]); 
     }
@@ -30,7 +35,23 @@ class HolidayController extends Controller
      */
     public function store(Request $request, Course $course)
     {
+        $courseDate1 = $course->startDate;
+        $courseDate2 = $course->endDate;
         $holiday = new Holiday($request->all());
+        $date1 = $holiday->stateDate;
+        $date2 = $holiday->endDate;
+
+        if (($courseDate2 >= $date1) && ( $date1 >= $courseDate1) && ($courseDate2 >= $date1)&&( $date1 >= $courseDate1) && ($date1 <= $date2)) {
+            $holiday->course_id = $course->id;
+            $holiday->save();
+            return redirect('/course/' . $course->id);
+        }
+        else{
+            return redirect('/course/' . $course->id . '/holiday');
+        }
+
+
+
         $holiday->course_id = $course->id;
         $holiday->save();
 
