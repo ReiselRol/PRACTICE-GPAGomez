@@ -49,6 +49,10 @@ svg {
 .headingBackground {
     background : linear-gradient(90deg, rgb(128, 0, 202), rgb(68, 0, 108))
 }
+.fullImage {
+    width: 100%;
+    height: auto;
+}
 .navbarTableSize {
     width: 100%;
     height: 100%;
@@ -255,13 +259,11 @@ svg {
 }
 .LateralBarTable {
     width: 100%;
-    height: 100%;
+    height: 10vh;
     margin: 0;
-    padding: 0;
 }
 .LateralTableTr {
     width: 100%;
-    height: 10%;
     padding: 0%;
 }
 .nothingHere {
@@ -280,10 +282,105 @@ svg {
 .middleTd {
     background-color: rgb(221, 221, 221);
 }
-.tdTitle {
-    border-bottom: white solid 2px;
+.tdNoTitle {
+    height: 10%;
 }
 .MenuTitle {
     color: white;
     font-size: 5vmin;
+    transition: left, opacity, 0.5s ease-in-out;
+}
+.TitleLogo {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+}
+.TitleMovedLogo {
+    left: 2%;
+}
+.TitleUnMovedLogo {
+    left: 65%
+}
+.TitleMovedText {
+    left: 28%;
+    opacity: 1;
+}
+.TitleUnMovedText {
+    left: -5%;
+    opacity: 0;
+}
+.TitleLetter {
+    position: absolute;
+    height: 25%;
+    transform: translateY(6%);
+}
+.lateralMiniOption {
+    color: white;
+    text-decoration: none !important;
+}
+.TitleLogo2 {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    top : 24vh;
+}
+.TitleLetter2 {
+    position: absolute;
+    height: 25%;
+    transform: translateY(6%);
+    top : 24vh;
+}
+.Subtitle1 {
+    position: absolute;
+    height: 25%;
+    top : 12vh;
+    font-size: 3vmin;
+    padding-left : 10px;
+    
+}
+.Subtitle2 {
+    position: absolute;
+    height: 25%;
+    top : 18vh;
+    font-size: 3vmin;
+    padding-left : 10px;
+}
+.liner {
+    transition: opacity 0.5s ease-in-out;
+}
+.inv {
+    opacity: 0;
+}
+.profileInfo {
+    position: fixed;
+    left : 90vw;
+    width: 10vw;
+    height: 15vh;
+    background: linear-gradient(16deg, rgb(226, 226, 226), white);
+    z-index: 998;
+    border-end-start-radius: 20px;
+    border-bottom: rgb(68, 0, 108) solid 2px;
+    border-left: rgb(68, 0, 108) solid 2px;
+    border-right: rgb(68, 0, 108) solid 2px;
+    transition: top 0.5s ease-in-out;
+}
+.profileShow { 
+    top : 10vh;
+}
+.profileUnShow { 
+    top : -10vh;
+}
+.profileOption {
+    height: 15%;
+    margin-top: 15%;
+    width: 100%;
+    text-align: center;
+}
+.profileOptionA {
+    text-decoration: none !important;
+    color: #720fb9;
+}
+.profileOptionL {
+    text-decoration: none !important;
+    color: rgb(199, 1, 1)
 }
