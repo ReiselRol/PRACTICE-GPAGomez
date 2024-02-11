@@ -33,7 +33,7 @@ class PeriodController extends Controller
         $period = new Period($request->all());
         $period->course_id = $course->id;
         $period->save();
-        return redirect('/course/'.$course->id.'/period');
+        return redirect('/course/'.$course->id);
     }
 
     /**
@@ -58,7 +58,7 @@ class PeriodController extends Controller
     public function update(Request $request, Period $period, Course $course)
     {
         $period->update($request->all());
-        return redirect('course/'.$course->id.'/period');
+        return redirect('course/'.$course->id);
     }
 
     /**
@@ -67,6 +67,6 @@ class PeriodController extends Controller
     public function destroy(Period $period, Course $course)
     {
         $period->delete();
-        return redirect('course/'.$course->id.'/period');
+        return redirect('course/'.$course->id);
     }
 }

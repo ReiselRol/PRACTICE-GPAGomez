@@ -34,7 +34,7 @@ class HolidayController extends Controller
         $holiday->course_id = $course->id;
         $holiday->save();
 
-        return redirect('/course/'.$course->id.'/holiday'); 
+        return redirect('/course/'.$course->id); 
     }
 
     /**
@@ -59,7 +59,7 @@ class HolidayController extends Controller
     public function update(Request $request, Holiday $holiday, Course $course)
     {
         $holiday->update($request->all());
-        return redirect('course/'.$course->id.'/holiday'); 
+        return redirect('course/'.$course->id); 
     }
 
     /**
@@ -68,6 +68,6 @@ class HolidayController extends Controller
     public function destroy(Holiday $holiday, Course $course)
     {
         $holiday->delete();
-        return redirect('course/'.$course->id.'/holiday'); 
+        return redirect('course/'.$course->id); 
     }
 }
