@@ -179,7 +179,7 @@ class CourseController extends Controller
                 $content .= '</tr>';
             }
             if ($initialMonth == 12) {
-                $initialMonth = 0;
+                $initialMonth = 1;
                 $initialYear ++;
             } else $initialMonth ++;
             $content .= '</table></td>';
